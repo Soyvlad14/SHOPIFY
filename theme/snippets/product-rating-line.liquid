@@ -7,19 +7,6 @@
 {%- assign pt_rating = 4.9 -%}
 {%- assign pt_review_count = "3.850" -%}
 
-{%- assign pt_full_stars = pt_rating | floor -%}
-{%- assign pt_remainder = pt_rating | minus: pt_full_stars -%}
-{%- assign pt_has_half = false -%}
-{%- if pt_remainder >= 0.25 and pt_remainder < 0.75 -%}
-  {%- assign pt_has_half = true -%}
-{%- elsif pt_remainder >= 0.75 -%}
-  {%- assign pt_full_stars = pt_full_stars | plus: 1 -%}
-{%- endif -%}
-{%- assign pt_empty_stars = 5 | minus: pt_full_stars -%}
-{%- if pt_has_half -%}
-  {%- assign pt_empty_stars = pt_empty_stars | minus: 1 -%}
-{%- endif -%}
-
 {% style %}
   .pt-social-proof {
     display: flex;
@@ -31,20 +18,23 @@
     display: inline-flex;
     align-items: center;
     gap: 2px;
+    background: #3DAA4E;
+    border-radius: 3px;
+    padding: 4px 5px;
     line-height: 0;
   }
   .pt-social-proof__stars svg {
-    width: 18px;
-    height: 18px;
+    width: 13px;
+    height: 13px;
+    fill: #fff;
     flex-shrink: 0;
     display: block;
   }
   .pt-social-proof__text {
-    font-size: 0.9rem;
-    color: #2b2620;
-    font-weight: 700;
+    font-size: 0.85rem;
+    color: #767676;
+    font-weight: 400;
     line-height: 1;
-    letter-spacing: 0.2px;
     white-space: nowrap;
   }
 
@@ -57,26 +47,10 @@
 
 <div class="pt-social-proof">
   <span class="pt-social-proof__stars">
-    {%- for i in (1..pt_full_stars) -%}
-      <svg viewBox="0 0 20 20" fill="#2E8B57"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6L1.3 7.2l6.1-.6z"/></svg>
-    {%- endfor -%}
-
-    {%- if pt_has_half -%}
-      <svg viewBox="0 0 20 20">
-        <defs>
-          <linearGradient id="pt-half-fill">
-            <stop offset="50%" stop-color="#2E8B57"/>
-            <stop offset="50%" stop-color="#e5dfd2"/>
-          </linearGradient>
-        </defs>
-        <path fill="url(#pt-half-fill)" d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6L1.3 7.2l6.1-.6z"/>
-      </svg>
-    {%- endif -%}
-
-    {%- for i in (1..pt_empty_stars) -%}
-      <svg viewBox="0 0 20 20" fill="#e5dfd2"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6L1.3 7.2l6.1-.6z"/></svg>
+    {%- for i in (1..5) -%}
+      <svg viewBox="0 0 20 20"><path d="M10 1l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6L1.3 7.2l6.1-.6z"/></svg>
     {%- endfor -%}
   </span>
-  <span class="pt-social-proof__text">{{ pt_rating }}/5.0 ({{ pt_review_count }}+ reseñas)</span>
+  <span class="pt-social-proof__text">({{ pt_rating }} / {{ pt_review_count }} reseñas)</span>
 </div>
 <div class="pt-rating-divider"></div>
