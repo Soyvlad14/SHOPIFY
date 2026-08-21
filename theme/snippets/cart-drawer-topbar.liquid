@@ -29,6 +29,25 @@
 
   /* Oculta el precio duplicado que aparece arriba a la derecha */
   #cart-drawer .cart-items__price { display: none; }
+
+  /* La pestaña se ajusta al contenido en vez de ocupar toda la pantalla */
+  #cart-drawer .theme-drawer__dialog {
+    height: auto;
+    max-height: min(620px, 88dvh);
+  }
+  #cart-drawer .cart-drawer__content {
+    height: auto;
+    flex-grow: 0;
+  }
+  #cart-drawer .cart-drawer__items {
+    overflow-y: auto;
+    max-height: 42dvh;
+  }
+  #cart-drawer .cart-drawer__summary {
+    position: static;
+    margin-top: 0;
+    mask-image: none;
+  }
 {% endstyle %}
 
 <div class="pt-cart-logo">

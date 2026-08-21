@@ -182,12 +182,21 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {}
+                },
+                "custom_liquid_trust_badges": {
+                  "type": "custom-liquid",
+                  "name": "t:names.custom_liquid",
+                  "settings": {
+                    "custom_liquid": "{% render 'product-social-proof' %}"
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "custom_liquid_TwyJVx",
                 "text_xrnftG",
-                "price_tVjtKg"
+                "price_tVjtKg",
+                "custom_liquid_trust_badges"
               ]
             },
             "divider_VJhene": {
@@ -307,7 +316,7 @@
               "type": "custom-liquid",
               "name": "t:names.custom_liquid",
               "settings": {
-                "custom_liquid": "{% render 'product-social-proof' %}"
+                "custom_liquid": "{% render 'product-trust-urgency' %}"
               },
               "blocks": {}
             },
