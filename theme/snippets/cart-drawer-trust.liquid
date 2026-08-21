@@ -1,0 +1,58 @@
+{%- comment -%}
+  Snippet: cart-drawer-trust
+  Uso: {% render 'cart-drawer-trust' %}
+{%- endcomment -%}
+
+{% style %}
+  #cart-drawer {
+    --pt-coffee: #4A2F22;
+    --pt-coffee-dark: #34211A;
+    --pt-coffee-light: #F3E9DC;
+    --pt-coffee-border: #E1D2BE;
+  }
+
+  /* Botón de pago con los tonos café de la marca */
+  #cart-drawer .cart__checkout-button {
+    background: var(--pt-coffee);
+    border-color: var(--pt-coffee);
+    color: #fff;
+  }
+  #cart-drawer .cart__checkout-button:hover {
+    background: var(--pt-coffee-dark);
+    border-color: var(--pt-coffee-dark);
+  }
+
+  .pt-cart-guarantee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--pt-coffee);
+    background: var(--pt-coffee-light);
+    border: 1px solid var(--pt-coffee-border);
+    border-radius: 99px;
+    padding: 8px 14px;
+    margin-top: 6px;
+  }
+  .pt-cart-guarantee svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  /* Oculta Shop Pay, Apple Pay, PayPal, Google Pay — deja solo "Pagar" */
+  .additional-checkout-buttons { display:none !important; }
+
+  /* Oculta "Total estimado" + aranceles/envío */
+  .cart-totals__container,
+  .cart-totals__tax-note { display:none !important; }
+{% endstyle %}
+
+<div class="pt-cart-guarantee">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5 4 8 9 10 5-2 9-5 9-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+  Garantía de devolución de 30 días
+</div>
+{% render 'pt-payment-icons' %}

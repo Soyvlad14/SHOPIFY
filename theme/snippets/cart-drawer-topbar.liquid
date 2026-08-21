@@ -1,0 +1,40 @@
+{%- comment -%}
+  Snippet: cart-drawer-topbar
+  Uso: {% render 'cart-drawer-topbar' %}
+{%- endcomment -%}
+
+{% style %}
+  /* Oculta el texto "Carrito" y centra el logo arriba, junto a la X */
+  #cart-drawer .cart-drawer__inner { position: relative; }
+  #cart-drawer #cart-drawer-heading { visibility: hidden; }
+
+  .pt-cart-logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  .pt-cart-logo img { max-height: 40px; width: auto; display: block; }
+
+  /* Tarjeta de producto: negritas + imagen más grande */
+  #cart-drawer .cart-items__title { font-weight: 700; }
+  #cart-drawer .cart-items__table-row {
+    grid-template-columns: 85px minmax(0, 1fr) minmax(6rem, auto);
+  }
+
+  /* Oculta el precio duplicado que aparece arriba a la derecha */
+  #cart-drawer .cart-items__price { display: none; }
+{% endstyle %}
+
+<div class="pt-cart-logo">
+  {%- if settings.logo != blank -%}
+    {{ settings.logo | image_url: width: 200 | image_tag }}
+  {%- else -%}
+    <strong>{{ shop.name }}</strong>
+  {%- endif -%}
+</div>
