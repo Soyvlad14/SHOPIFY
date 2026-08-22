@@ -1,9 +1,10 @@
 {% style %}
   .trust-bar-{{ section.id }} {
     background-color: {{ section.settings.bg_color }};
-    border-top: 1px solid {{ section.settings.divider_color }};
-    border-bottom: 1px solid {{ section.settings.divider_color }};
-    padding: {{ section.settings.padding_block }}px 20px;
+    padding-top: {{ section.settings.padding_block }}px;
+    padding-bottom: {{ section.settings.padding_block }}px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .trust-bar-{{ section.id }} .tb-inner {
     max-width: 900px;
@@ -77,12 +78,6 @@
       "id": "text_color",
       "label": "Color del texto",
       "default": "#1A1A1A"
-    },
-    {
-      "type": "color",
-      "id": "divider_color",
-      "label": "Color de las lineas divisorias",
-      "default": "#0000001A"
     },
     {
       "type": "number",
