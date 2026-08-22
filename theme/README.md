@@ -89,3 +89,21 @@ colocado en la **página de producto**, arriba del bloque "Prueba social"
   pidió (carrusel arriba, ese abajo).
 - `sections/reviews-carrusel.liquid` no cambió en esta iteración; es la misma
   sección reutilizada en dos plantillas distintas.
+
+## Ajustes (v4) — barra de confianza en la página de inicio
+
+Nueva sección `sections/barra-confianza.liquid` (tipo `barra-confianza`):
+franja blanca minimalista con 3 iconos en línea (mundo, candado, tarjeta) y
+texto en negritas debajo de cada uno, con líneas divisorias finas arriba y
+abajo — inspirada en una captura que envió la clienta.
+
+- Se agregó una instancia (`barra_confianza_h3Kp7X`) en `templates/index.json`,
+  justo entre `collection_list_nqwwE9` ("Tendencias para ella") y
+  `product_list_QBDLqL` (la grilla de productos), que era el espacio en
+  blanco que pidió la clienta.
+- 3 bloques editables tipo `icono`, cada uno con selector de icono
+  (mundo/candado/tarjeta) y texto: "Envío Gratis", "Garantía 30 días",
+  "Pago Seguro" — se pueden editar, reordenar, agregar o quitar desde el
+  editor de temas.
+- Colores (fondo, iconos, texto, líneas divisorias) y espaciado vertical son
+  ajustes de la sección, editables sin tocar código.

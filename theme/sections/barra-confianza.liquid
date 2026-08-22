@@ -1,0 +1,130 @@
+{% style %}
+  .trust-bar-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    border-top: 1px solid {{ section.settings.divider_color }};
+    border-bottom: 1px solid {{ section.settings.divider_color }};
+    padding: {{ section.settings.padding_block }}px 20px;
+  }
+  .trust-bar-{{ section.id }} .tb-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 24px;
+    column-gap: clamp(32px, 8vw, 88px);
+  }
+  .trust-bar-{{ section.id }} .tb-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    color: {{ section.settings.icon_color }};
+  }
+  .trust-bar-{{ section.id }} .tb-item svg {
+    width: 22px;
+    height: 22px;
+  }
+  .trust-bar-{{ section.id }} .tb-item span {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: {{ section.settings.text_color }};
+  }
+{% endstyle %}
+
+{% capture icon_envio %}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.74 6H15.7a15.6 15.6 0 00-1.38-3.56A8.03 8.03 0 0118.74 8zM12 4.06c.83 1.2 1.5 2.53 1.94 3.94h-3.88c.44-1.41 1.11-2.74 1.94-3.94zM4.26 14a7.9 7.9 0 010-4h3.38a16.4 16.4 0 000 4H4.26zm.88 2h3.04a15.6 15.6 0 001.38 3.56A8.03 8.03 0 015.14 16zm3.04-8H5.14a8.03 8.03 0 013.3-3.56A15.6 15.6 0 007.06 8H8.18zm2.94 10.94A15.6 15.6 0 019.7 16h4.6a15.6 15.6 0 01-1.42 2.94c-.28.02-.56.06-.88.06s-.6-.04-.88-.06zM14.44 14H9.56a14.3 14.3 0 010-4h4.88a14.3 14.3 0 010 4zm.86 4.56A15.6 15.6 0 0016.68 16h3.04a8.03 8.03 0 01-3.42 3.56zM16.68 8a15.6 15.6 0 00-1.38-3.56A8.03 8.03 0 0118.74 8h-2.06zM16.36 10h3.38a7.9 7.9 0 010 4h-3.38a16.4 16.4 0 000-4z"/></svg>{% endcapture %}
+
+{% capture icon_candado %}<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd"/></svg>{% endcapture %}
+
+{% capture icon_tarjeta %}<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/><path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/></svg>{% endcapture %}
+
+<div class="trust-bar-{{ section.id }}">
+  <div class="tb-inner">
+    {% for block in section.blocks %}
+      <div class="tb-item" {{ block.shopify_attributes }}>
+        {% case block.settings.icon %}
+          {% when 'candado' %}{{ icon_candado }}
+          {% when 'tarjeta' %}{{ icon_tarjeta }}
+          {% else %}{{ icon_envio }}
+        {% endcase %}
+        <span>{{ block.settings.label }}</span>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Barra de confianza",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Color de fondo",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Color de los iconos",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color del texto",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Color de las lineas divisorias",
+      "default": "#0000001A"
+    },
+    {
+      "type": "number",
+      "id": "padding_block",
+      "label": "Espaciado vertical (px)",
+      "default": 28
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icono",
+      "name": "Icono",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icono",
+          "options": [
+            { "value": "envio", "label": "Envio (mundo)" },
+            { "value": "candado", "label": "Candado" },
+            { "value": "tarjeta", "label": "Tarjeta" }
+          ],
+          "default": "envio"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Texto",
+          "default": "Envio Gratis"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Barra de confianza",
+      "blocks": [
+        { "type": "icono", "settings": { "icon": "envio", "label": "Envío Gratis" } },
+        { "type": "icono", "settings": { "icon": "candado", "label": "Garantía 30 días" } },
+        { "type": "icono", "settings": { "icon": "tarjeta", "label": "Pago Seguro" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

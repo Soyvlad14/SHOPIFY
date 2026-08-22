@@ -574,6 +574,45 @@
         "padding-block-end": 0
       }
     },
+    "barra_confianza_h3Kp7X": {
+      "type": "barra-confianza",
+      "blocks": {
+        "icono_envio": {
+          "type": "icono",
+          "settings": {
+            "icon": "envio",
+            "label": "Envío Gratis"
+          }
+        },
+        "icono_candado": {
+          "type": "icono",
+          "settings": {
+            "icon": "candado",
+            "label": "Garantía 30 días"
+          }
+        },
+        "icono_tarjeta": {
+          "type": "icono",
+          "settings": {
+            "icon": "tarjeta",
+            "label": "Pago Seguro"
+          }
+        }
+      },
+      "block_order": [
+        "icono_envio",
+        "icono_candado",
+        "icono_tarjeta"
+      ],
+      "name": "Barra de confianza",
+      "settings": {
+        "bg_color": "#FFFFFF",
+        "icon_color": "#1A1A1A",
+        "text_color": "#1A1A1A",
+        "divider_color": "#0000001A",
+        "padding_block": 28
+      }
+    },
     "product_list_QBDLqL": {
       "type": "product-list",
       "blocks": {
@@ -884,6 +923,7 @@
     "section_6DEVaK",
     "product_list_fa6P9H",
     "collection_list_nqwwE9",
+    "barra_confianza_h3Kp7X",
     "product_list_QBDLqL",
     "reviews_carrusel_FyW3b7",
     "banner_confianza_w9e8NM"
