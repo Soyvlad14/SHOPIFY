@@ -83,6 +83,7 @@
   }
 {% endstyle %}
 
+<div data-pt-social-proof>
 <div class="pt-trust-badges">
   <div class="pt-badge pt-badge--express">
     <span class="pt-badge__icon-wrap">
@@ -112,3 +113,20 @@
   <span class="pt-low-stock__dot"></span>
   <span class="pt-low-stock__label">Últimas unidades disponibles</span>
 </div>
+</div>
+
+<script>
+  (function () {
+    function pt_dedupe_social_proof() {
+      var nodes = document.querySelectorAll('[data-pt-social-proof]');
+      for (var i = 1; i < nodes.length; i++) {
+        nodes[i].remove();
+      }
+    }
+    pt_dedupe_social_proof();
+    if (window.MutationObserver) {
+      var pt_observer = new MutationObserver(pt_dedupe_social_proof);
+      pt_observer.observe(document.documentElement, { childList: true, subtree: true });
+    }
+  })();
+</script>
