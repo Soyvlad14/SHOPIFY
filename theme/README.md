@@ -71,3 +71,21 @@ confianza:
   clienta" → Seleccionar imagen. Mientras no haya foto, se muestra un avatar
   con la inicial del nombre (como estaba). También se pueden agregar, quitar
   o reordenar reseñas como cualquier otro bloque.
+- La clienta ya subió sus propias fotos (`AVATAR_1.jpg`…`AVATAR_6.jpg`) desde
+  el editor y renombró una reseña ("David L." → "Rosa L."). `templates/index.json`
+  en este repo refleja ese estado más reciente.
+
+## Ajustes (v3) — carrusel también en la página de producto
+
+A pedido de la clienta: mismo carrusel de reseñas (con sus fotos ya subidas),
+colocado en la **página de producto**, arriba del bloque "Prueba social"
+(los 3 avatares + "Laura S., Marta T. y +5.748 confían en Paulina Montiel").
+
+- `templates/product.json` — se agregó una nueva instancia de la sección
+  `reviews-carrusel` (`reviews_carrusel_product_9F3xQ2`) justo después de
+  `main` y antes de `social_proof_banner_TCBqXx` en el `order`. Usa los mismos
+  5 bloques/fotos que la versión de la página de inicio.
+- No se tocó `social-proof-banner` — sigue debajo del carrusel, tal como se
+  pidió (carrusel arriba, ese abajo).
+- `sections/reviews-carrusel.liquid` no cambió en esta iteración; es la misma
+  sección reutilizada en dos plantillas distintas.

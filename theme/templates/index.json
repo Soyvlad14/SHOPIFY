@@ -775,11 +775,11 @@
     },
     "reviews_carrusel_FyW3b7": {
       "type": "reviews-carrusel",
-      "name": "Carrusel de resenas",
       "blocks": {
         "review_andrea01": {
           "type": "review",
           "settings": {
+            "photo": "shopify://shop_images/AVATAR_2.jpg",
             "title": "Queda incluso mejor que en las fotos",
             "text": "Tenía miedo de que no me quedara igual que a la modelo, pero cuando me lo probé me encantó cómo estiliza.",
             "author": "Andrea P."
@@ -788,14 +788,16 @@
         "review_david02": {
           "type": "review",
           "settings": {
+            "photo": "shopify://shop_images/AVATAR_1.jpg",
             "title": "Mucho mejor de lo que esperaba",
             "text": "La tela es suave y el conjunto queda muy bien puesto. Me gusta porque es cómodo pero a la vez se ve elegante. Sin duda volvería a comprar.",
-            "author": "David L."
+            "author": "Rosa L."
           }
         },
         "review_cristina03": {
           "type": "review",
           "settings": {
+            "photo": "shopify://shop_images/AVATAR_3.jpg",
             "title": "Muy buena calidad",
             "text": "La tela es mucho mejor de lo que esperaba y queda muy bien puesta.",
             "author": "Cristina D."
@@ -804,6 +806,7 @@
         "review_sara04": {
           "type": "review",
           "settings": {
+            "photo": "shopify://shop_images/AVATAR_4.jpg",
             "title": "Una de mis mejores compras últimamente",
             "text": "Es de esas prendas que sabes que vas a usar muchísimo porque combina con todo.",
             "author": "Sara T."
@@ -812,6 +815,7 @@
         "review_claudia05": {
           "type": "review",
           "settings": {
+            "photo": "shopify://shop_images/AVATAR_6.jpg",
             "title": "Ya me han preguntado dónde lo compré",
             "text": "Me lo puse el fin de semana y dos amigas me preguntaron por él. Eso ya lo dice todo.",
             "author": "Claudia R."
@@ -825,13 +829,16 @@
         "review_sara04",
         "review_claudia05"
       ],
+      "name": "Carrusel de resenas",
       "settings": {
-        "bg_color": "#FFFFFF",
+        "bg_color": "#ffffff",
+        "accent_color": "#b8860b",
         "heading": "Las opiniones hablan por si solas",
         "summary_label": "Valoracion excelente:",
         "rating": 4.8,
         "rating_max": 5,
-        "reviews_count_text": "Basado en 5067 resenas verificadas"
+        "reviews_count_text": "Basado en 5067 resenas verificadas",
+        "verified_text": "Compra verificada"
       }
     },
     "banner_confianza_w9e8NM": {
