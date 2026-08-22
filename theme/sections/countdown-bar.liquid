@@ -1,0 +1,119 @@
+{% style %}
+  .countdown-bar-{{ section.id }} {
+    width: 100%;
+    padding: 9px 16px;
+    box-sizing: border-box;
+    background: {{ section.settings.bg_color }};
+    text-align: center;
+    font-family: Assistant, Arial, sans-serif;
+  }
+  .countdown-bar-{{ section.id }} .cb-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+  }
+  .countdown-bar-{{ section.id }} .cb-label {
+    color: {{ section.settings.text_color }};
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+  .countdown-bar-{{ section.id }} .cb-timer {
+    color: {{ section.settings.timer_color }};
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.14em;
+    font-variant-numeric: tabular-nums;
+  }
+{% endstyle %}
+
+<div class="countdown-bar-{{ section.id }}">
+  <div class="cb-inner">
+    <span class="cb-label">{{ section.settings.label }}</span>
+    <span class="cb-timer" id="countdown-timer-{{ section.id }}">00:00:00</span>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var el = document.getElementById('countdown-timer-{{ section.id }}');
+    if (!el) return;
+
+    var formatter = new Intl.DateTimeFormat('es-MX', {
+      timeZone: 'America/Mexico_City',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hourCycle: 'h23'
+    });
+
+    function getParts() {
+      var parts = formatter.formatToParts(new Date());
+      var time = {};
+      parts.forEach(function (p) {
+        if (p.type === 'hour' || p.type === 'minute' || p.type === 'second') {
+          time[p.type] = Number(p.value);
+        }
+      });
+      return time;
+    }
+
+    function update() {
+      var t = getParts();
+      var secondsPassed = t.hour * 3600 + t.minute * 60 + t.second;
+      var diff = (86400 - secondsPassed) % 86400;
+      var h = Math.floor(diff / 3600);
+      var m = Math.floor((diff % 3600) / 60);
+      var s = diff % 60;
+      el.textContent =
+        String(h).padStart(2, '0') + ':' +
+        String(m).padStart(2, '0') + ':' +
+        String(s).padStart(2, '0');
+    }
+
+    update();
+    setInterval(update, 1000);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Barra de cuenta regresiva",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Color de fondo",
+      "default": "#6B4A3A"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color del texto",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "timer_color",
+      "label": "Color del reloj",
+      "default": "#F2E9DD"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Texto",
+      "default": "ÚLTIMOS DÍAS DE LIQUIDACIÓN — HASTA 70% DE DESCUENTO"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Barra de cuenta regresiva"
+    }
+  ]
+}
+{% endschema %}
