@@ -1,0 +1,180 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "header_announcements_9jGBFp": {
+      "type": "header-announcements",
+      "blocks": {
+        "announcement_aCM6BD": {
+          "type": "_announcement",
+          "name": "t:names.announcement",
+          "settings": {
+            "text": "30 DÍAS DE GARANTÍA",
+            "link": "",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "weight": "500",
+            "letter_spacing": "normal",
+            "case": "none",
+            "text_color": "{{ settings.color_palette.background }}"
+          },
+          "blocks": {}
+        },
+        "announcement_8wmN3H": {
+          "type": "_announcement",
+          "name": "t:names.announcement",
+          "settings": {
+            "text": "ENVÍO GRATIS HOY",
+            "link": "",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "weight": "500",
+            "letter_spacing": "normal",
+            "case": "none",
+            "text_color": "{{ settings.color_palette.background }}"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "announcement_aCM6BD",
+        "announcement_8wmN3H"
+      ],
+      "name": "t:names.announcement_bar",
+      "settings": {
+        "speed": 5,
+        "section_width": "page-width",
+        "background_color": "#dbb788",
+        "divider_width": 1,
+        "divider_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 13,
+        "padding-block-end": 13
+      }
+    },
+    "header_section": {
+      "type": "header",
+      "blocks": {
+        "header-logo": {
+          "type": "_header-logo",
+          "static": true,
+          "settings": {
+            "hide_logo_on_home_page": false,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        },
+        "header-menu": {
+          "type": "_header-menu",
+          "static": true,
+          "settings": {
+            "menu": "main-menu",
+            "background_color": "{{ settings.color_palette.background }}",
+            "text_color": "",
+            "type_font_primary_size": "0.875rem",
+            "menu_font_style": "inverse",
+            "type_font_primary_link": "body",
+            "type_case_primary_link": "none",
+            "menu_style": "text",
+            "featured_products_aspect_ratio": "4 / 5",
+            "featured_collections_aspect_ratio": "16 / 9",
+            "image_border_radius": 0,
+            "navigation_bar": false,
+            "background_color_navigation_bar": "{{ settings.color_palette.background }}",
+            "text_color_navigation_bar": "",
+            "drawer_accordion": true,
+            "drawer_accordion_expand_first": false,
+            "drawer_dividers": false
+          },
+          "blocks": {}
+        }
+      },
+      "settings": {
+        "logo_position": "left",
+        "menu_position": "center",
+        "menu_row": "top",
+        "customer_account_menu": "",
+        "show_search": true,
+        "search_position": "right",
+        "search_row": "top",
+        "show_country": false,
+        "country_selector_style": false,
+        "show_language": true,
+        "localization_font": "heading",
+        "localization_font_size": "0.875rem",
+        "localization_position": "right",
+        "localization_row": "top",
+        "section_width": "page-width",
+        "section_height": "standard",
+        "enable_sticky_header": "always",
+        "divider_width": 0,
+        "divider_size": "page-width",
+        "divider_color": "",
+        "border_width": 0,
+        "bottom_border_color": "",
+        "actions_display_style": "icon",
+        "actions_font_size": "0.875rem",
+        "actions_font": "body",
+        "actions_text_case": "none",
+        "background_color_top": "{{ settings.color_palette.background }}",
+        "text_color_top": "",
+        "background_color_bottom": "",
+        "text_color_bottom": "",
+        "bubble_style": "default",
+        "bubble_background_color": "",
+        "bubble_text_color": "",
+        "enable_transparent_header_home": false,
+        "home_inverse_logo": false,
+        "text_color_transparent_home": "",
+        "enable_transparent_header_product": false,
+        "product_inverse_logo": false,
+        "text_color_transparent_product": "",
+        "enable_transparent_header_collection": false,
+        "collection_inverse_logo": false,
+        "text_color_transparent_collection": ""
+      }
+    },
+    "custom_liquid_U4VRaa": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<style>\n  #ultimo-dia-bar {\n    background: #000000;\n    padding: 4px 12px 5px;\n    text-align: center;\n  }\n\n  #ultimo-dia-bar .ud-inner {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 1px;\n  }\n\n  #ultimo-dia-bar .ud-headline {\n    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    font-size: 8.5px;\n    font-weight: 600;\n    color: #f5ece1;\n  }\n\n  #ultimo-dia-bar .ud-timer {\n    font-family: 'Courier New', monospace;\n    font-variant-numeric: tabular-nums;\n    font-feature-settings: \"tnum\";\n    font-size: 12px;\n    font-weight: 700;\n    letter-spacing: 0.5px;\n    color: #cba55e;\n  }\n\n  @media (max-width: 480px) {\n    #ultimo-dia-bar {\n      padding: 3px 8px 4px;\n    }\n    #ultimo-dia-bar .ud-headline {\n      font-size: 7.5px;\n      letter-spacing: 0.5px;\n    }\n    #ultimo-dia-bar .ud-timer {\n      font-size: 10.5px;\n    }\n  }\n</style>\n\n<div id=\"ultimo-dia-bar\">\n  <div class=\"ud-inner\">\n    <span class=\"ud-headline\">Último día &mdash; Hasta 60% de descuento</span>\n    <span class=\"ud-timer\" id=\"ud-tiempo\">00:00:00</span>\n  </div>\n</div>\n\n<script>\n  function actualizarUltimoDiaTimer() {\n    const ahora = new Date();\n    const medianoche = new Date();\n    medianoche.setHours(24, 0, 0, 0);\n    const msRestante = medianoche - ahora;\n\n    const horas = Math.floor(msRestante / 3600000);\n    const minutos = Math.floor((msRestante % 3600000) / 60000);\n    const segundos = Math.floor((msRestante % 60000) / 1000);\n\n    const pad = (n) => String(n).padStart(2, '0');\n    document.getElementById('ud-tiempo').innerText = `${pad(horas)}:${pad(minutos)}:${pad(segundos)}`;\n  }\n\n  actualizarUltimoDiaTimer();\n  setInterval(actualizarUltimoDiaTimer, 1000);\n</script>\n{%- comment -%}\n  Fix: las páginas de políticas (Shopify las genera automático, sin\n  esquema de color asignado) heredaban --color en blanco de otra\n  sección, dejando el texto invisible sobre fondo blanco.\n  Esto fuerza los colores correctos solo en esas páginas.\n{%- endcomment -%}\n\n<style>\n  .shopify-policy__container {\n    color: #1a1a1a;\n    background: #ffffff;\n    max-width: 720px;\n    margin: 0 auto;\n    padding: 40px 20px 80px;\n  }\n  .shopify-policy__title,\n  .shopify-policy__title h1 {\n    color: #1a1a1a;\n  }\n  .shopify-policy__body,\n  .shopify-policy__body h2,\n  .shopify-policy__body h3,\n  .shopify-policy__body p,\n  .shopify-policy__body li,\n  .shopify-policy__body a {\n    color: #1a1a1a;\n  }\n  .shopify-policy__body a {\n    text-decoration: underline;\n  }\n</style>\n\n{%- comment -%}\n  Fix: el widget de \"Localizar pedido\" (app ParcelPanel/CWILL) hereda\n  el color: var(--color) global del tema en sus títulos (h1), dejando\n  el texto blanco sobre blanco e invisible. Mismo bug que las políticas.\n{%- endcomment -%}\n\n<style>\n  #pp-tracking-page-app,\n  #pp-tracking-page-app h1,\n  #pp-tracking-page-app h2,\n  #pp-tracking-page-app h3,\n  #pp-tracking-page-app p,\n  #pp-tracking-page-app span,\n  #pp-tracking-page-app label,\n  .pp_tracking_form_div,\n  .pp_tracking_title,\n  .pp_tracking_title span,\n  .pp_tracking_tab,\n  .pp_tracking_form_in {\n    color: #1a1a1a !important;\n  }\n  #pp-tracking-page-app input {\n    color: #1a1a1a !important;\n    background: #ffffff !important;\n  }\n</style>\n{%- comment -%}\n  Fix: en el menú móvil (drawer), \"Lo más buscado en hombre\" se corta\n  con guión (\"hom-bre\") porque el texto es muy grande para el ancho.\n  Esto lo achica solo en mobile para que quepa en una línea o rompa\n  limpio, sin guiones.\n{%- endcomment -%}\n\n<style>\n  @media screen and (max-width: 749px) {\n    menu-drawer a,\n    .menu-drawer a,\n    .menu-drawer__menu a,\n    .menu-drawer__navigation a,\n    .menu-drawer__menu-item {\n      font-size: 1.35rem !important;\n      line-height: 1.25 !important;\n      hyphens: none !important;\n      -webkit-hyphens: none !important;\n      word-break: normal !important;\n      overflow-wrap: normal !important;\n    }\n  }\n</style>",
+        "background_color": "",
+        "section_width": "full-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "popup_descuento_VPhdq7": {
+      "type": "popup-descuento",
+      "name": "Popup de descuento",
+      "settings": {
+        "side_tab_text": "10% DE DESCUENTO",
+        "heading": "10% DE DESCUENTO POR TIEMPO LIMITADO",
+        "subtext": "",
+        "discount_code": "PAULINA10",
+        "copy_button_text": "COPIAR CODIGO",
+        "copied_text": "Codigo copiado",
+        "timer_label": "Tu descuento desaparece en...",
+        "timer_minutes": 10,
+        "delay_seconds": 2,
+        "close_text": "Seguir comprando"
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_U4VRaa",
+    "header_section",
+    "header_announcements_9jGBFp",
+    "popup_descuento_VPhdq7"
+  ]
+}

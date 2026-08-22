@@ -129,3 +129,32 @@ acento dorado, a partir de una captura de referencia que envió la clienta.
 - **Nota**: el texto y el "60%" son exactamente los del ejemplo que envió la
   clienta — su tienda en otros lugares dice "hasta 70%", así que puede que
   quiera ajustar el porcentaje antes de publicar.
+- Tras varias rondas de ajuste directo en el editor (pegando código nuevo
+  cada vez), el estado final de ese bloque quedó: fondo negro sólido,
+  tipografía más pequeña (título 8.5px / 7.5px en móvil, contador 12px /
+  10.5px en móvil). `header-liquid-personalizado.liquid` en este repo
+  refleja ese estado final.
+
+## Ajustes (v6) — orden del header en móvil
+
+Tema borrador nuevo (`Paulina Montiel - Orden Header Draft`, duplicado del
+`MAIN` — el tema anterior ya se había publicado) para reordenar las barras
+del header en vista móvil, a partir de una captura de referencia
+(elarashowroom.com) que envió la clienta.
+
+- Tema borrador: `Paulina Montiel - Orden Header Draft`
+- Vista previa: https://paulinamontiel.com/?preview_theme_id=156100591802
+- Editor: https://zv001c-im.myshopify.com/admin/themes/156100591802/editor
+
+`sections/header-group.json` — se intercambió el orden de dos secciones en
+el `order` del grupo de header:
+
+- Antes: `header_announcements_9jGBFp` (barra "30 días de garantía" /
+  "Envío gratis hoy") → `header_section` (logo/menú/buscador/carrito) →
+  `custom_liquid_U4VRaa` (barra "Último día") → `popup_descuento_VPhdq7`.
+- Ahora: `custom_liquid_U4VRaa` (barra "Último día", ahora hasta arriba,
+  antes del header) → `header_section` → `header_announcements_9jGBFp`
+  (ahora debajo del header, donde antes estaba la barra "Último día") →
+  `popup_descuento_VPhdq7`.
+- No se modificó el contenido de ninguna de las dos secciones, solo su
+  posición en el `order`.
