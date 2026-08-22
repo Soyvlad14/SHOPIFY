@@ -107,3 +107,25 @@ abajo — inspirada en una captura que envió la clienta.
   editor de temas.
 - Colores (fondo, iconos, texto, líneas divisorias) y espaciado vertical son
   ajustes de la sección, editables sin tocar código.
+
+## Ajustes (v5) — barra "Último día" en el header
+
+La clienta publicó el tema borrador (ahora es el tema `MAIN`), así que este
+cambio se entregó como código para pegar directamente en el editor de temas
+(Header → **Liquid personalizado**), sin pasar por un tema borrador nuevo.
+
+`theme/custom-liquid/header-liquid-personalizado.liquid` es el contenido
+completo y actualizado de ese bloque "Liquid personalizado" — reemplaza el
+antiguo marquee negro `#liquidacion-final` ("Liquidación final • Termina
+en...") por una barra estática de dos líneas ("Último día — Hasta 60% de
+descuento" + contador `HH:MM:SS`), en tonos café oscuro con degradado y
+acento dorado, a partir de una captura de referencia que envió la clienta.
+
+- El contador reutiliza la misma lógica que ya tenía (cuenta regresiva hasta
+  la medianoche del día actual), así que se sigue reiniciando solo cada día.
+- Los tres parches de CSS que ya vivían en ese mismo bloque (páginas de
+  políticas, widget de "Localizar pedido", menú móvil) se conservan
+  intactos, sin tocar.
+- **Nota**: el texto y el "60%" son exactamente los del ejemplo que envió la
+  clienta — su tienda en otros lugares dice "hasta 70%", así que puede que
+  quiera ajustar el porcentaje antes de publicar.

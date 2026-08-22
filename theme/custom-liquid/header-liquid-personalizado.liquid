@@ -1,0 +1,150 @@
+<style>
+  #ultimo-dia-bar {
+    background: linear-gradient(135deg, #5a3826, #3b2418);
+    padding: 10px 16px 12px;
+    text-align: center;
+  }
+
+  #ultimo-dia-bar .ud-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  #ultimo-dia-bar .ud-headline {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #f5ece1;
+  }
+
+  #ultimo-dia-bar .ud-timer {
+    font-family: 'Courier New', monospace;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #e8c07d;
+  }
+
+  @media (max-width: 480px) {
+    #ultimo-dia-bar .ud-headline {
+      font-size: 10.5px;
+      letter-spacing: 1px;
+    }
+    #ultimo-dia-bar .ud-timer {
+      font-size: 17px;
+    }
+  }
+</style>
+
+<div id="ultimo-dia-bar">
+  <div class="ud-inner">
+    <span class="ud-headline">Último día &mdash; Hasta 60% de descuento</span>
+    <span class="ud-timer" id="ud-tiempo">00:00:00</span>
+  </div>
+</div>
+
+<script>
+  function actualizarUltimoDiaTimer() {
+    const ahora = new Date();
+    const medianoche = new Date();
+    medianoche.setHours(24, 0, 0, 0);
+    const msRestante = medianoche - ahora;
+
+    const horas = Math.floor(msRestante / 3600000);
+    const minutos = Math.floor((msRestante % 3600000) / 60000);
+    const segundos = Math.floor((msRestante % 60000) / 1000);
+
+    const pad = (n) => String(n).padStart(2, '0');
+    document.getElementById('ud-tiempo').innerText = `${pad(horas)}:${pad(minutos)}:${pad(segundos)}`;
+  }
+
+  actualizarUltimoDiaTimer();
+  setInterval(actualizarUltimoDiaTimer, 1000);
+</script>
+{%- comment -%}
+  Fix: las páginas de políticas (Shopify las genera automático, sin
+  esquema de color asignado) heredaban --color en blanco de otra
+  sección, dejando el texto invisible sobre fondo blanco.
+  Esto fuerza los colores correctos solo en esas páginas.
+{%- endcomment -%}
+
+<style>
+  .shopify-policy__container {
+    color: #1a1a1a;
+    background: #ffffff;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .shopify-policy__title,
+  .shopify-policy__title h1 {
+    color: #1a1a1a;
+  }
+  .shopify-policy__body,
+  .shopify-policy__body h2,
+  .shopify-policy__body h3,
+  .shopify-policy__body p,
+  .shopify-policy__body li,
+  .shopify-policy__body a {
+    color: #1a1a1a;
+  }
+  .shopify-policy__body a {
+    text-decoration: underline;
+  }
+</style>
+
+{%- comment -%}
+  Fix: el widget de "Localizar pedido" (app ParcelPanel/CWILL) hereda
+  el color: var(--color) global del tema en sus títulos (h1), dejando
+  el texto blanco sobre blanco e invisible. Mismo bug que las políticas.
+{%- endcomment -%}
+
+<style>
+  #pp-tracking-page-app,
+  #pp-tracking-page-app h1,
+  #pp-tracking-page-app h2,
+  #pp-tracking-page-app h3,
+  #pp-tracking-page-app p,
+  #pp-tracking-page-app span,
+  #pp-tracking-page-app label,
+  .pp_tracking_form_div,
+  .pp_tracking_title,
+  .pp_tracking_title span,
+  .pp_tracking_tab,
+  .pp_tracking_form_in {
+    color: #1a1a1a !important;
+  }
+  #pp-tracking-page-app input {
+    color: #1a1a1a !important;
+    background: #ffffff !important;
+  }
+</style>
+{%- comment -%}
+  Fix: en el menú móvil (drawer), "Lo más buscado en hombre" se corta
+  con guión ("hom-bre") porque el texto es muy grande para el ancho.
+  Esto lo achica solo en mobile para que quepa en una línea o rompa
+  limpio, sin guiones.
+{%- endcomment -%}
+
+<style>
+  @media screen and (max-width: 749px) {
+    menu-drawer a,
+    .menu-drawer a,
+    .menu-drawer__menu a,
+    .menu-drawer__navigation a,
+    .menu-drawer__menu-item {
+      font-size: 1.35rem !important;
+      line-height: 1.25 !important;
+      hyphens: none !important;
+      -webkit-hyphens: none !important;
+      word-break: normal !important;
+      overflow-wrap: normal !important;
+    }
+  }
+</style>
