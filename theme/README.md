@@ -31,7 +31,7 @@ publicado.
 - Vista previa: https://paulinamontiel.com/?preview_theme_id=156099215546
 - Editor: https://zv001c-im.myshopify.com/admin/themes/156099215546/editor
 
-## Qué cambió
+## Qué cambió (v1)
 
 `sections/reviews-carrusel.liquid` — rediseño completo pensado para transmitir
 confianza:
@@ -53,3 +53,21 @@ confianza:
   ajustes existentes (color de fondo, título, valoración, etc.) se mantienen
   intactos.
 - Sigue sin JavaScript (scroll nativo con snap), igual que el original.
+
+## Ajustes (v2), a pedido de la clienta
+
+- **Quitado el degradado de las orillas del carrusel** (el efecto difuminado
+  ya no está).
+- **Todo más pequeño**: tarjetas de 190–222px (antes 218–252px), texto
+  recortado a 3 líneas, tipografía y espaciados reducidos en todo el bloque.
+- **Quitado el fondo café**: `bg_color` default ahora es blanco (`#FFFFFF`).
+  Los textos del encabezado (título, valoración, "reseñas verificadas") ahora
+  tienen colores oscuros explícitos para que se sigan viendo bien sobre
+  cualquier fondo, en vez de heredar el color del tema.
+- **Las 5 reseñas ahora son bloques editables** en `templates/index.json`
+  (`type: review`), cada uno con: **Foto de la clienta** (`image_picker`,
+  opcional), Título, Texto y Nombre. Se puede subir una foto real por reseña
+  directamente desde el editor de temas — clic en la tarjeta → "Foto de la
+  clienta" → Seleccionar imagen. Mientras no haya foto, se muestra un avatar
+  con la inicial del nombre (como estaba). También se pueden agregar, quitar
+  o reordenar reseñas como cualquier otro bloque.
