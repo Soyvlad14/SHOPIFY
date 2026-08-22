@@ -1,7 +1,7 @@
 <style>
   #ultimo-dia-bar {
     background: linear-gradient(135deg, #5a3826, #3b2418);
-    padding: 10px 16px 12px;
+    padding: 6px 14px 7px;
     text-align: center;
   }
 
@@ -9,14 +9,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px;
+    gap: 1px;
   }
 
   #ultimo-dia-bar .ud-headline {
     font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-size: 12px;
+    letter-spacing: 1.1px;
+    font-size: 10px;
     font-weight: 600;
     color: #f5ece1;
   }
@@ -25,19 +25,22 @@
     font-family: 'Courier New', monospace;
     font-variant-numeric: tabular-nums;
     font-feature-settings: "tnum";
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     color: #e8c07d;
   }
 
   @media (max-width: 480px) {
+    #ultimo-dia-bar {
+      padding: 5px 10px 6px;
+    }
     #ultimo-dia-bar .ud-headline {
-      font-size: 10.5px;
-      letter-spacing: 1px;
+      font-size: 8.5px;
+      letter-spacing: 0.6px;
     }
     #ultimo-dia-bar .ud-timer {
-      font-size: 17px;
+      font-size: 12px;
     }
   }
 </style>
