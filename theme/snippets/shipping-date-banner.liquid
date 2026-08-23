@@ -1,0 +1,81 @@
+{%- comment -%}
+  Snippet: shipping-date-banner
+  Uso: {% render 'shipping-date-banner' %}
+  Muestra "Procesamiento de pedido [día, fecha]" calculado siempre 2 días después del día en que se visualiza la página,
+  mas "Envío Gratuito". No incluye datos de ningún país específico.
+{%- endcomment -%}
+
+{% style %}
+  .pt-shipping-banner {
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.12);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .pt-shipping-banner__row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #2b2620;
+  }
+  .pt-shipping-banner__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2e8b57;
+    flex-shrink: 0;
+  }
+  .pt-shipping-banner__row--free {
+    padding-top: 8px;
+    border-top: 1px solid rgb(var(--color-foreground-rgb) / 0.08);
+    font-weight: 600;
+  }
+  .pt-shipping-banner__row--free svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: #2e8b57;
+  }
+{% endstyle %}
+
+<div class="pt-shipping-banner" data-pt-shipping-banner>
+  <div class="pt-shipping-banner__row">
+    <span class="pt-shipping-banner__dot"></span>
+    <span>Procesamiento de pedido <strong data-shipping-date>calculando...</strong></span>
+  </div>
+  <div class="pt-shipping-banner__row pt-shipping-banner__row--free">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="13" height="9" rx="1"/><path d="M14 10h3.2L21 13.5V16h-3"/><circle cx="6" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></svg>
+    <span>Envío Gratuito</span>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var wrapper = document.currentScript.previousElementSibling;
+    if (!wrapper || !wrapper.hasAttribute('data-pt-shipping-banner')) {
+      wrapper = document.querySelector('[data-pt-shipping-banner]');
+    }
+    if (!wrapper) return;
+    var el = wrapper.querySelector('[data-shipping-date]');
+    if (!el) return;
+
+    var days = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+    var months = [
+      'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+      'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+    ];
+
+    var d = new Date();
+    d.setDate(d.getDate() + 2);
+
+    var dayName = days[d.getDay()];
+    dayName = dayName.charAt(0).toUpperCase() + dayName.slice(1);
+    var monthName = months[d.getMonth()];
+
+    el.textContent = dayName + ', ' + d.getDate() + ' de ' + monthName;
+  })();
+</script>
