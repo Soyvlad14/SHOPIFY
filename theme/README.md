@@ -25,4 +25,4 @@ para poder revisarlos antes de que queden visibles a los clientes:
 - Tema borrador: `Paulina Montiel - Quitar Logo OXXO` (id 156206825658, duplicado del tema principal)
 - Vista previa: https://paulinamontiel.com/products/laia?preview_theme_id=156206825658
 - `snippets/pt-payment-icons.liquid` — se elimina el `<img>` del logo de OXXO; se conserva el de Mercado Pago y los íconos nativos de `shop.enabled_payment_types`
-- `snippets/product-social-proof.liquid` — ícono de "Garantía de devolución de 30 días" rediseñado: paquete isométrico con sombreado (caras clara/gris/negra) envuelto en una flecha circular de devolución, estilo línea sobre fondo transparente; ícono de "Empresa Familiar Mexicana" es la bandera de México en formato de chip/bandera redondeado (no círculo) con sus colores propios
+- `snippets/product-social-proof.liquid` — ícono de "Garantía de devolución de 30 días" ajustado al estilo de referencia del cliente: silueta plana negra de una flecha gruesa de devolución envolviendo una caja isométrica; ícono de "Empresa Familiar Mexicana" vuelve a ser un círculo con la bandera de México en sus colores propios (verde/blanco/rojo)
