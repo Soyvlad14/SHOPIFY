@@ -34,6 +34,13 @@
     height: 15px;
     display: block;
   }
+  .pt-badge__icon-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
   .pt-badge__label {
     font-weight: 400;
   }
@@ -47,19 +54,9 @@
     width: 26px;
     height: 26px;
   }
-  .pt-badge--warranty .pt-badge__icon-wrap {
-    background: transparent;
-    overflow: visible;
-    width: 30px;
-    height: 30px;
-  }
-  .pt-badge--warranty .pt-badge__icon-wrap svg {
-    width: 30px;
-    height: 30px;
-  }
-  .pt-badge--familiar .pt-badge__icon-wrap svg {
-    width: 26px;
-    height: 26px;
+  .pt-badge--warranty .pt-badge__icon-wrap,
+  .pt-badge--familiar .pt-badge__icon-wrap {
+    background: #FFFFFF;
   }
 
   .pt-low-stock {
@@ -103,27 +100,13 @@
   </div>
   <div class="pt-badge pt-badge--warranty">
     <span class="pt-badge__icon-wrap">
-      <svg viewBox="0 0 64 64" role="img" aria-label="Devolución de paquete" xmlns="http://www.w3.org/2000/svg">
-        <path d="M55.6 43 A26 26 0 1 0 7.6 23.1 L16 26.2 A17 17 0 1 1 47.4 39.2 Z" fill="#171310"/>
-        <polygon points="2,19 18,9 18,34" fill="#171310"/>
-        <path d="M34 30 56 42 34 54 12 42 Z" fill="#171310"/>
-        <path d="M12 42 34 54 34 64 12 52 Z" fill="#171310"/>
-        <path d="M56 42 34 54 34 64 56 52 Z" fill="#171310"/>
-        <path d="M12 42 34 54 56 42" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        <path d="M34 54 34 64" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-      </svg>
+      <img src="{{ 'pt-devolucion-icon.png' | asset_url }}" alt="Devolución de paquete" loading="lazy" width="26" height="26">
     </span>
     <span class="pt-badge__label">Garantía de <strong>devolución</strong> de 30 días</span>
   </div>
   <div class="pt-badge pt-badge--familiar">
     <span class="pt-badge__icon-wrap">
-      <svg viewBox="0 0 26 26" role="img" aria-label="Bandera de México">
-        <rect width="26" height="26" fill="#FFFFFF"/>
-        <rect width="8.67" height="26" fill="#006341"/>
-        <rect x="17.33" width="8.67" height="26" fill="#CE1126"/>
-        <circle cx="13" cy="13" r="2.4" fill="#8B5E3C"/>
-        <path d="M13 11.3c.55 0 1 .5 1 1.05s-.45 1.1-1 1.6c-.55-.5-1-1.05-1-1.6s.45-1.05 1-1.05Z" fill="#4C7A3D"/>
-      </svg>
+      <img src="{{ 'pt-bandera-mexico.png' | asset_url }}" alt="Bandera de México" loading="lazy" width="26" height="26">
     </span>
     <span class="pt-badge__label">Empresa <strong>Familiar</strong> Mexicana</span>
   </div>
