@@ -1,0 +1,33 @@
+{%- comment -%}
+  Snippet: pt-payment-icons
+  Uso: {% render 'pt-payment-icons' %}
+  Dibuja los íconos reales de los métodos de pago que tienes activos en Shopify Admin → Pagos,
+  más el logo de Mercado Pago (no cubierto por el filtro nativo de Shopify), con el
+  mismo tamaño y formato que el resto.
+{%- endcomment -%}
+
+{% style %}
+  .pt-payment-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 6px 0 4px;
+  }
+  .pt-payment-icons svg,
+  .pt-payment-icons img {
+    height: 26px;
+    width: auto;
+    border-radius: 4px;
+  }
+{% endstyle %}
+
+<div class="pt-payment-icons">
+  {%- for type in shop.enabled_payment_types -%}
+    {{ type | payment_type_svg_tag: class: 'pt-payment-icon' }}
+  {%- endfor -%}
+
+  {%- comment -%} Mercado Pago no tiene ícono nativo en Shopify {%- endcomment -%}
+  <img src="{{ 'mercadopago-logo.png' | asset_url }}" alt="Mercado Pago" class="pt-payment-icon" loading="lazy" width="auto" height="26">
+</div>

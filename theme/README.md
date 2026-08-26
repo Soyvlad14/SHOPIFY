@@ -19,3 +19,8 @@ para poder revisarlos antes de que queden visibles a los clientes:
 - `templates/product.json` — reconecta el bloque de confianza a `product-social-proof`
 - `snippets/cart-drawer-topbar.liquid` — quita banner de reserva y barra de envío gratis, centra el logo
 - `snippets/cart-drawer-trust.liquid` — botón de pago y garantía en tonos café de la marca
+
+## Quitar logo de OXXO (tema borrador `Paulina Montiel - Quitar Logo OXXO`)
+
+- Tema borrador: `Paulina Montiel - Quitar Logo OXXO` (id 156206825658, duplicado del tema principal)
+- `snippets/pt-payment-icons.liquid` — se elimina el `<img>` del logo de OXXO; se conserva el de Mercado Pago y los íconos nativos de `shop.enabled_payment_types`
